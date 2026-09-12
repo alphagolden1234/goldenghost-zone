@@ -1,0 +1,1458 @@
+
+ 
+    <!DOCTYPE html>
+<html lang="sw">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Golden Ghost - One Community. One World.">
+
+    <title>Golden Ghost | One Community. One World.</title>
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            background: #050505;
+            color: #ffffff;
+            font-family: Arial, Helvetica, sans-serif;
+            overflow-x: hidden;
+        }
+
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+
+        button {
+            font-family: inherit;
+        }
+
+
+        /* =========================
+           VARIABLES
+        ========================= */
+
+        :root {
+            --gold: #ffd21f;
+            --gold-dark: #b8860b;
+            --black: #050505;
+            --dark: #0d0d0d;
+            --card: #111111;
+            --border: #3e3100;
+            --gray: #a5a5a5;
+        }
+
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        body::before {
+            content: "";
+            position: fixed;
+            width: 600px;
+            height: 600px;
+
+            background: radial-gradient(
+                circle,
+                rgba(255, 210, 31, 0.10),
+                transparent 70%
+            );
+
+            top: -250px;
+            left: 50%;
+            transform: translateX(-50%);
+
+            pointer-events: none;
+            z-index: -1;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            padding: 15px 6%;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(5, 5, 5, 0.92);
+
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(255, 210, 31, 0.12);
+
+            z-index: 1000;
+        }
+
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-size: 20px;
+            font-weight: 900;
+
+            color: var(--gold);
+            letter-spacing: 1px;
+        }
+
+
+        .brand img {
+            width: 45px;
+            height: 45px;
+
+            object-fit: contain;
+
+            filter: drop-shadow(
+                0 0 8px rgba(255, 210, 31, 0.4)
+            );
+        }
+
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+        }
+
+
+        .nav-links a {
+            color: #ddd;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+
+        .nav-login {
+            border: 1px solid var(--gold);
+            color: var(--gold) !important;
+
+            padding: 9px 20px;
+
+            border-radius: 25px;
+        }
+
+
+        .nav-login:hover {
+            background: var(--gold);
+            color: #000 !important;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+
+            padding: 150px 6% 80px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            position: relative;
+        }
+
+
+        .hero-content {
+            max-width: 850px;
+            text-align: center;
+        }
+
+
+        .hero-logo {
+            width: 280px;
+            max-width: 75%;
+
+            margin-bottom: 20px;
+
+            filter:
+                drop-shadow(0 0 15px rgba(255, 210, 31, 0.35));
+        }
+
+
+        .hero h1 {
+            font-size: clamp(45px, 8vw, 90px);
+
+            font-weight: 900;
+
+            line-height: 0.95;
+
+            letter-spacing: 3px;
+
+            background: linear-gradient(
+                135deg,
+                #fff4a8,
+                #ffd21f,
+                #b8860b
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+
+        .hero h2 {
+            margin-top: 15px;
+
+            font-size: clamp(20px, 3vw, 32px);
+
+            font-weight: 500;
+
+            color: #ffffff;
+        }
+
+
+        .hero h2 span {
+            color: var(--gold);
+        }
+
+
+        .hero-description {
+            max-width: 650px;
+
+            margin: 25px auto;
+
+            color: #aaa;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================
+           BUTTONS
+        ========================= */
+
+        .hero-buttons {
+            display: flex;
+
+            justify-content: center;
+
+            gap: 15px;
+
+            margin-top: 30px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .btn {
+            padding: 15px 32px;
+
+            border-radius: 35px;
+
+            font-size: 15px;
+
+            font-weight: 800;
+
+            border: none;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .btn-gold {
+            background: linear-gradient(
+                135deg,
+                #ffe45c,
+                #ffd21f,
+                #b8860b
+            );
+
+            color: #000;
+
+            box-shadow:
+                0 8px 30px rgba(255, 210, 31, 0.18);
+        }
+
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 35px rgba(255, 210, 31, 0.30);
+        }
+
+
+        .btn-outline {
+            background: transparent;
+
+            color: var(--gold);
+
+            border: 1px solid var(--gold);
+        }
+
+
+        .btn-outline:hover {
+            background: var(--gold);
+            color: #000;
+        }
+
+
+        /* =========================
+           GLOBAL BADGE
+        ========================= */
+
+        .global-badge {
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-top: 35px;
+
+            padding: 10px 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 30px;
+
+            color: #ccc;
+
+            font-size: 13px;
+
+            background: rgba(255,255,255,0.02);
+        }
+
+
+        .global-badge span {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           SECTION
+        ========================= */
+
+        .section {
+            padding: 90px 6%;
+        }
+
+
+        .section-title {
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .section-title h2 {
+            font-size: clamp(30px, 5vw, 50px);
+
+            margin-bottom: 12px;
+        }
+
+
+        .section-title h2 span {
+            color: var(--gold);
+        }
+
+
+        .section-title p {
+            color: var(--gray);
+
+            max-width: 600px;
+
+            margin: auto;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FEATURES
+        ========================= */
+
+        .features {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .feature-card {
+            background:
+                linear-gradient(
+                    145deg,
+                    #151515,
+                    #090909
+                );
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            transition: 0.3s;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+
+        .feature-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            background: rgba(255, 210, 31, 0.08);
+
+            border-radius: 50%;
+
+            top: -50px;
+            right: -50px;
+        }
+
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+
+            border-color: var(--gold);
+
+            box-shadow:
+                0 15px 40px rgba(0,0,0,0.5);
+        }
+
+
+        .feature-icon {
+            width: 55px;
+            height: 55px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            background: rgba(255,210,31,0.10);
+
+            border: 1px solid var(--border);
+
+            border-radius: 15px;
+
+            font-size: 27px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .feature-card h3 {
+            font-size: 20px;
+
+            margin-bottom: 12px;
+
+            color: var(--gold);
+        }
+
+
+        .feature-card p {
+            color: #999;
+
+            line-height: 1.6;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           GLOBAL COMMUNITY
+        ========================= */
+
+        .global-section {
+            padding: 100px 6%;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #050505,
+                    #0c0c0c,
+                    #050505
+                );
+        }
+
+
+        .global-box {
+            max-width: 1100px;
+
+            margin: auto;
+
+            padding: 60px 40px;
+
+            border-radius: 30px;
+
+            border: 1px solid var(--border);
+
+            text-align: center;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(255,210,31,0.08),
+                    transparent 65%
+                );
+        }
+
+
+        .world-icon {
+            font-size: 65px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .global-box h2 {
+            font-size: clamp(30px, 5vw, 55px);
+
+            margin-bottom: 15px;
+        }
+
+
+        .global-box h2 span {
+            color: var(--gold);
+        }
+
+
+        .global-box p {
+            color: #aaa;
+
+            max-width: 700px;
+
+            margin: auto;
+
+            line-height: 1.7;
+
+            font-size: 16px;
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+            max-width: 1000px;
+
+            margin: 60px auto 0;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 20px;
+        }
+
+
+        .stat {
+            text-align: center;
+
+            padding: 25px;
+
+            border-right: 1px solid var(--border);
+        }
+
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+
+        .stat h3 {
+            font-size: 35px;
+
+            color: var(--gold);
+
+            margin-bottom: 5px;
+        }
+
+
+        .stat p {
+            color: #888;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           CTA
+        ========================= */
+
+        .cta {
+            padding: 100px 6%;
+
+            text-align: center;
+        }
+
+
+        .cta-box {
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 60px 30px;
+
+            border-radius: 30px;
+
+            background: #0d0d0d;
+
+            border: 1px solid var(--gold);
+
+            box-shadow:
+                0 0 60px rgba(255,210,31,0.06);
+        }
+
+
+        .cta h2 {
+            font-size: clamp(30px, 5vw, 55px);
+
+            margin-bottom: 15px;
+        }
+
+
+        .cta h2 span {
+            color: var(--gold);
+        }
+
+
+        .cta p {
+            color: #999;
+
+            max-width: 600px;
+
+            margin: 0 auto 30px;
+
+            line-height: 1.6;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            padding: 50px 6% 25px;
+
+            border-top: 1px solid #1b1b1b;
+
+            background: #030303;
+        }
+
+
+        .footer-content {
+            max-width: 1200px;
+
+            margin: auto;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 30px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+
+        .footer-brand h3 {
+            color: var(--gold);
+
+            font-size: 20px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .footer-brand p {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .footer-links {
+            display: flex;
+
+            gap: 35px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .footer-column h4 {
+            color: #fff;
+
+            margin-bottom: 15px;
+
+            font-size: 14px;
+        }
+
+
+        .footer-column a {
+            display: block;
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 9px;
+
+            transition: 0.3s;
+        }
+
+
+        .footer-column a:hover {
+            color: var(--gold);
+        }
+
+
+        .copyright {
+            max-width: 1200px;
+
+            margin: 35px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #151515;
+
+            text-align: center;
+
+            color: #555;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .nav-links {
+                display: none;
+            }
+
+
+            .navbar {
+                padding: 12px 20px;
+            }
+
+
+            .hero {
+                padding: 130px 20px 70px;
+            }
+
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+
+            .stat {
+                border-right: none;
+
+                border-bottom: 1px solid var(--border);
+            }
+
+
+            .stat:last-child {
+                border-bottom: none;
+            }
+
+
+            .global-box {
+                padding: 45px 25px;
+            }
+
+
+            .footer-content {
+                flex-direction: column;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .hero-logo {
+                width: 230px;
+            }
+
+
+            .hero-description {
+                font-size: 15px;
+            }
+
+
+            .btn {
+                width: 100%;
+            }
+
+
+            .hero-buttons {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#d4af37">
+
+<script src="/gg-i18n.js" defer></script>
+<script src="/pwa-install.js" defer></script>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <nav class="navbar">
+
+        <a href="index.html" class="brand">
+
+            <img src="golden-ghost-logo.png"
+                 alt="Golden Ghost">
+
+            GOLDEN GHOST
+
+        </a>
+
+
+        <div class="nav-links">
+
+            <a href="#home">
+                Home
+            </a>
+
+            <a href="#features">
+                Features
+            </a>
+
+            <a href="#community">
+                Community
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+            <a href="signup.html"
+               class="nav-login">
+                Sign Up
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+
+                <img src="golden-ghost-logo.png"
+                     alt="Golden Ghost Logo"
+                     class="hero-logo">
+
+
+                <h1>
+                    GOLDEN GHOST
+                </h1>
+
+
+                <h2>
+                    <span>One Community.</span>
+                    One World. 🌍
+                </h2>
+
+
+                <p class="hero-description">
+
+                    Kutana na watu kutoka duniani kote,
+                    jenga connections, jiunge na communities,
+                    shiriki mawazo na tengeneza opportunities
+                    mpya bila mipaka.
+
+                </p>
+
+
+                <div class="hero-buttons">
+
+                    <a href="signup.html"
+                       class="btn btn-gold">
+
+                        GET STARTED 🚀
+
+                    </a>
+
+
+                    <button
+                         class="btn btn-outline"
+    onclick="window.location.href='login.html'">
+
+                        LOG IN
+
+                    </button>
+
+                </div>
+
+
+                <div class="global-badge">
+
+                    🌎
+
+                    <span>
+                        Connect
+                    </span>
+
+                    •
+
+                    <span>
+                        Share
+                    </span>
+
+                    •
+
+                    <span>
+                        Grow
+                    </span>
+
+                    •
+
+                    <span>
+                        Together
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             FEATURES
+        ========================== -->
+
+        <section
+            class="section"
+            id="features">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Karibu kwenye
+                    <span>Golden Ghost</span>
+                </h2>
+
+                <p>
+                    Platform inayolenga kuwaunganisha
+                    watu wa mataifa mbalimbali sehemu moja.
+                </p>
+
+            </div>
+
+
+            <div class="features">
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🌍
+                    </div>
+
+                    <h3>
+                        Discover People
+                    </h3>
+
+                    <p>
+                        Tafuta na kukutana na watu
+                        kutoka nchi mbalimbali duniani
+                        kulingana na interests zako.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        👥
+                    </div>
+
+                    <h3>
+                        Communities
+                    </h3>
+
+                    <p>
+                        Jiunge na communities zinazokuvutia
+                        na pia tengeneza community yako
+                        mwenyewe.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💬
+                    </div>
+
+                    <h3>
+                        Connect & Chat
+                    </h3>
+
+                    <p>
+                        Wasiliana na watu wapya,
+                        jenga friendships na
+                        connections za maana.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🤝
+                    </div>
+
+                    <h3>
+                        Networking
+                    </h3>
+
+                    <p>
+                        Jenga network yako kimataifa
+                        na kukutana na watu wenye
+                        malengo na interests zinazofanana.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        💡
+                    </div>
+
+                    <h3>
+                        Share Ideas
+                    </h3>
+
+                    <p>
+                        Shiriki ideas, maarifa,
+                        experiences na opportunities
+                        na community ya dunia.
+                    </p>
+
+                </div>
+
+
+
+                <div class="feature-card">
+
+                    <div class="feature-icon">
+                        🛡️
+                    </div>
+
+                    <h3>
+                        Safe Community
+                    </h3>
+
+                    <p>
+                        Mfumo wa reports, blocking
+                        na moderation utasaidia kujenga
+                        mazingira salama kwa users.
+                    </p>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             GLOBAL COMMUNITY
+        ========================== -->
+
+        <section
+            class="global-section"
+            id="community">
+
+
+            <div class="global-box">
+
+                <div class="world-icon">
+                    🌍
+                </div>
+
+
+                <h2>
+                    Dunia ni kubwa.
+                    <span>
+                        Connections zako pia.
+                    </span>
+                </h2>
+
+
+                <p>
+
+                    Golden Ghost inalenga kuvunja mipaka
+                    ya nchi na lugha kwa kuwaunganisha watu
+                    wenye interests mbalimbali kutoka
+                    sehemu tofauti za dunia.
+
+                </p>
+
+
+                <div class="stats">
+
+
+                    <div class="stat">
+
+                        <h3>
+                            🌍
+                        </h3>
+
+                        <p>
+                            Global Connections
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <h3>
+                            👥
+                        </h3>
+
+                        <p>
+                            Global Communities
+                        </p>
+
+                    </div>
+
+
+                    <div class="stat">
+
+                        <h3>
+                            💬
+                        </h3>
+
+                        <p>
+                            Conversations
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =========================
+             ABOUT
+        ========================== -->
+
+        <section
+            class="section"
+            id="about">
+
+
+            <div class="section-title">
+
+                <h2>
+                    Kwa nini
+                    <span>Golden Ghost?</span>
+                </h2>
+
+                <p>
+
+                    Tunataka kujenga sehemu ambayo
+                    mtu anaweza kukutana na watu wapya,
+                    kujifunza, kushirikiana na kukua
+                    pamoja bila kujali anatoka nchi gani.
+
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- =========================
+             CTA
+        ========================== -->
+
+        <section class="cta">
+
+            <div class="cta-box">
+
+
+                <h2>
+
+                    Tayari kuanza
+                    <span>ku-connect?</span>
+
+                </h2>
+
+
+                <p>
+
+                    Jiunge na Golden Ghost na uwe
+                    sehemu ya safari ya kujenga
+                    community moja inayounganisha dunia.
+
+                </p>
+
+
+                <a href="signup.html"
+                   class="btn btn-gold">
+
+                    CREATE ACCOUNT 🌍
+
+                </a>
+
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+
+            <div class="footer-brand">
+
+                <h3>
+                    GOLDEN GHOST 👻
+                </h3>
+
+                <p>
+                    One Community. One World.
+                    <br>
+                    Connect • Share • Grow
+                </p>
+
+            </div>
+
+
+            <div class="footer-links">
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Platform
+                    </h4>
+
+                    <a href="#features">
+                        Features
+                    </a>
+
+                    <a href="#community">
+                        Community
+                    </a>
+
+                    <a href="signup.html">
+                        Sign Up
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Community
+                    </h4>
+
+                    <a href="#">
+                        Discover
+                    </a>
+
+                    <a href="#">
+                        Communities
+                    </a>
+
+                    <a href="#">
+                        Events
+                    </a>
+
+                </div>
+
+
+                <div class="footer-column">
+
+                    <h4>
+                        Support
+                    </h4>
+
+                    <a href="#">
+                        Help
+                    </a>
+
+                    <a href="#">
+                        Safety
+                    </a>
+
+                    <a href="#">
+                        Privacy
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Golden Ghost.
+            All rights reserved.
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        function showLoginMessage() {
+
+            alert(
+                "Login system bado tunaitengeneza. 🚀\n\n" +
+                "Hatua inayofuata tutatengeneza Login ya Golden Ghost."
+            );
+
+        }
+
+    </script>
+
+
+<script>
+if ('serviceWorker' in navigator) { window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js').catch(() => {})); }
+</script>
+</body>
+
+</html>
